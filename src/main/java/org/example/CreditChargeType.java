@@ -1,0 +1,16 @@
+package org.example;
+
+public enum CreditChargeType {
+    GROCERIES,
+    FOOD_OUT,
+    DONATION,
+    UTILITY_GAS,
+    UTILITY_ELECTRICITY,
+    UTLITY_SEWER,
+    UTILITY_WATER,
+    UTILITY_CELLPHONE,
+    UTILITY_INTERNET,
+    DISCRETIONARY,
+    ONE_TIME
+
+}

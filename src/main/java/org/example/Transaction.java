@@ -2,7 +2,7 @@ package org.example;
 
 import java.time.LocalDate;
 
-public class Transaction {
+public abstract class Transaction {
     private int id;
     private static int nextId = 1;
     private double amount;
