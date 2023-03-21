@@ -1,32 +1,15 @@
 package org.example;
 
-import java.time.LocalDate;
-
 public class CreditTransaction extends Transaction {
 
-    private String chargeType;
-    //Dek stands for description
-    private String dek;
+    private AccountDetails accountDetails;
 
-    CreditTransaction(double amount, LocalDate date, String chargeType, String dek){
-        super(amount, date);
-        this.chargeType = chargeType;
-        this.dek = dek;
+    public CreditTransaction(double amount, String date, ChargeCategory chargeCategory, String dek, AccountDetails accountDetails){
+        super(amount, date, chargeCategory, dek);
+        this.accountDetails = accountDetails;
     }
 
-    public String getChargeType() {
-        return chargeType;
-    }
 
-    public void setChargeType(String chargeType) {
-        this.chargeType = chargeType;
-    }
 
-    public String getDek() {
-        return dek;
-    }
 
-    public void setDek(String dek) {
-        this.dek = dek;
-    }
 }
