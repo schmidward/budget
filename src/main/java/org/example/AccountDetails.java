@@ -7,6 +7,8 @@ public class AccountDetails {
     private String dek;
     private String dateOpened;
 
+    //@OneToMany(mappedBy= accountDetails)
+
     public AccountDetails(String name, String accountType, String dek, String dateOpened) {
         this.name = name;
         this.type = accountType;
