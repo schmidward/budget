@@ -1,19 +1,28 @@
 package org.example;
 
-public class AccountDetails {
+public class Account {
 
+    private int id;
+    private static int nextId = 1;
     private String name;
     private String type;
-    private String dek;
     private String dateOpened;
 
     //@OneToMany(mappedBy= accountDetails)
 
-    public AccountDetails(String name, String accountType, String dek, String dateOpened) {
+    Account() {
+        this.id = nextId;
+        nextId++;
+    }
+
+    public Account(String name, String accountType, String dateOpened) {
         this.name = name;
         this.type = accountType;
-        this.dek = dek;
         this.dateOpened = dateOpened;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getName() {
@@ -30,14 +39,6 @@ public class AccountDetails {
 
     public void setType(String type) {
         this.type = type;
-    }
-
-    public String getDek() {
-        return dek;
-    }
-
-    public void setDek(String dek) {
-        this.dek = dek;
     }
 
     public String getDateOpened() {

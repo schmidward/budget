@@ -4,6 +4,20 @@
 
 ---
 
+### 03/22/2023 - Base class refactors
+
+My initial objects had many duplicate fields that 
+could be consolidated into the abstract base class. 
+There are still two classes for checking vs. credit charges,
+and I'd like to consolidate those too, but I'm not yet sure 
+how that looks yet.
+
+Eventually this will be some kind of MVC application with
+a persistent database to log entries. With that in mind, I'm
+leaving some notes of eventual ``@ManyToMany | @ManyToOne | @OneToMany`` annotations.
+
+---
+
 ### 03/07/2023 - Project Initialization
 
 Budgeting apps are everywhere, and I've tried my fair share of them. But I've always run into the same problems

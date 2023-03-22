@@ -1,9 +1,8 @@
 package org.example;
 
-import java.time.LocalDate;
 import java.util.Objects;
 
-public abstract class Transaction {
+public abstract class BaseCharge {
     private int id;
     private static int nextId = 1;
     private double amount;
@@ -13,11 +12,11 @@ public abstract class Transaction {
     //Dek stands for description
     private String dek;
 
-    public Transaction(){
+    public BaseCharge(){
         id = nextId;
         nextId++;
     }
-    public Transaction(double amount, String date, ChargeCategory chargeCategory, String dek){
+    public BaseCharge(double amount, String date, ChargeCategory chargeCategory, String dek){
         this();
         this.amount = amount;
         this.date = date;
@@ -43,12 +42,28 @@ public abstract class Transaction {
         this.date = date;
     }
 
+    public ChargeCategory getChargeCategory() {
+        return chargeCategory;
+    }
+
+    public void setChargeCategory(ChargeCategory chargeCategory) {
+        this.chargeCategory = chargeCategory;
+    }
+
+    public String getDek() {
+        return dek;
+    }
+
+    public void setDek(String dek) {
+        this.dek = dek;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass())
             return false;
-        Transaction that = (Transaction) o;
+        BaseCharge that = (BaseCharge) o;
         return id == that.id;
     }
 
