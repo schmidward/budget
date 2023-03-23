@@ -1,16 +1,20 @@
 package org.example;
 
+import org.example.helpingFunctions.miscHelpers;
+
 import java.util.Objects;
 
-public abstract class BaseCharge {
+
+public abstract class BaseCharge implements miscHelpers {
     private int id;
     private static int nextId = 1;
     private double amount;
     private String date;
-
+    private Integer intDate = null;
     private ChargeCategory chargeCategory;
     //Dek stands for description
     private String dek;
+
 
     public BaseCharge(){
         id = nextId;
@@ -40,6 +44,14 @@ public abstract class BaseCharge {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public Integer getIntDate() {
+        return intDate;
+    }
+
+    public void setIntDate(Integer intDate) {
+        this.intDate = intDate;
     }
 
     public ChargeCategory getChargeCategory() {
@@ -72,5 +84,22 @@ public abstract class BaseCharge {
         return Objects.hash(id);
     }
 
+    @Override
+    public void dateTransform(){
+        String date = this.getDate();
+        String year = date.substring(date.length() - 4, date.length());
+        String monthAndDay = date.substring(0, 5);
+        String newDate = year + "-" + monthAndDay;
+        this.setDate(newDate);
+    };
+
+    @Override
+    public void dateToInteger(){
+        String date = this.getDate();
+        String[] newDate = date.split("-");
+        String newDate2 = date.join("", newDate);
+        Integer intDate = Integer.parseInt(newDate2);
+        this.setIntDate(intDate);
+    }
 
 }

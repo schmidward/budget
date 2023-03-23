@@ -4,4 +4,5 @@ public interface miscHelpers {
 
     void dateTransform();
 
+    void dateToInteger();
 }
