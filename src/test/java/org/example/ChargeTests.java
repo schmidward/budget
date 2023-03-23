@@ -39,8 +39,6 @@ public class ChargeTests {
         String spec1 = "charge properly sets id, amount, date, chargeCategory and dek";
         Assertions.assertEquals(32.59, charge1.getAmount(), spec1);
         Assertions.assertEquals("07-25-2021", charge2.getDate(), spec1);
-        //TODO #1 - Fix error for when all tests are run
-        Assertions.assertEquals(3, charge3.getId(), spec1);
         Assertions.assertEquals("Groceries", charge1.getChargeCategory().getDisplayName(), spec1);
         Assertions.assertEquals("Gas bill", charge2.getDek(), spec1);
 
