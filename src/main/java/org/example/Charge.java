@@ -1,6 +1,8 @@
 package org.example;
 
-public class Charge extends BaseCharge {
+import org.example.helpingFunctions.miscHelpers;
+
+public class Charge extends BaseCharge implements miscHelpers {
 
     private Account account;
 
@@ -20,4 +22,13 @@ public class Charge extends BaseCharge {
     public void setAccountDetails(Account account) {
         this.account = account;
     }
+
+    @Override
+    public void dateTransform(){
+        String date = this.getDate();
+        String year = date.substring(date.length() - 4, date.length());
+        String monthAndDay = date.substring(0, 5);
+        String newDate = year + "-" + monthAndDay;
+        this.setDate(newDate);
+    };
 }

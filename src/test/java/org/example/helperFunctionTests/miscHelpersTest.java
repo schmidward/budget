@@ -15,6 +15,7 @@ public class miscHelpersTest {
         dummyAccount = new Account("Second Bank", "Checking", "03-04-2021");
         testData1 = new Charge(35, "06-24-2022", ChargeCategory.GROCERIES, "Beep boop", dummyAccount);
         String spec = "The date is properly transformed from MM-DD-YYYY to YYYY-MM-DD";
-        Assertions.assertEquals("2022-06-24", testData1.dateTransform(), spec);
+        testData1.dateTransform();
+        Assertions.assertEquals("2022-06-24", testData1.getDate(), spec);
     }
 }
