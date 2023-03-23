@@ -4,6 +4,22 @@
 
 ---
 
+### 03/23/2023 - Adding tests and helper methods
+
+The core data structure is mostly complete and now I'm starting to build out the
+base Java code for some type of minimally viable product. The next steps are to
+begin writing different unit testing to ensure the structure and methods work as 
+designed. This will be important further in the dev process when these are hooked up 
+to MVC and a database.
+
+Next steps include defining more helper functions for the math side of processing: median,
+count, and others. Also some misc helpers that will do things like reformatting of dates
+to play nicer with SQL and avoid using a Java date class. I plan to do this by transforming 
+the date strings into YYYY-MM-DD and convert to ints for some of the functionality. Maybe
+this is a dumb move but I don't want to mess around with java dates.
+
+---
+
 ### 03/22/2023 - Base class refactors
 
 My initial objects had many duplicate fields that 
