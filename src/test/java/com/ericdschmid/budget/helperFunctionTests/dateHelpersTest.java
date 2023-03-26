@@ -1,13 +1,13 @@
-package org.example.helperFunctionTests;
+package com.ericdschmid.budget.helperFunctionTests;
 
-import org.example.Account;
-import org.example.Charge;
-import org.example.ChargeCategory;
+import com.ericdschmid.budget.model.Account;
+import com.ericdschmid.budget.model.ChargeCategory;
+import com.ericdschmid.budget.model.Charge;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class miscHelpersTest {
+public class dateHelpersTest {
 
     private Charge testData1;
     private Account dummyAccount;
@@ -32,5 +32,10 @@ public class miscHelpersTest {
         Assertions.assertEquals(20220624, testData1.getIntDate(), spec);
     }
 
+//    @Test
+//    public void dateSortTest(){
+//        String spec = "Returns all charge objects in a specified date range";
+//        Assertions.assertEquals(  , spec);
+//    }
 
 }

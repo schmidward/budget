@@ -1,4 +1,4 @@
-package org.example;
+package com.ericdschmid.budget.model;
 
 public enum ChargeCategory {
 

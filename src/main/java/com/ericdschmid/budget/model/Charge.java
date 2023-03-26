@@ -1,6 +1,4 @@
-package org.example;
-
-import org.example.helpingFunctions.miscHelpers;
+package com.ericdschmid.budget.model;
 
 public class Charge extends BaseCharge {
 

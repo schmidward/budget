@@ -1,7 +1,9 @@
-package org.example;
+package com.ericdschmid.budget.model;
 
+import com.ericdschmid.budget.model.Account;
+import com.ericdschmid.budget.model.Charge;
+import com.ericdschmid.budget.model.ChargeCategory;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

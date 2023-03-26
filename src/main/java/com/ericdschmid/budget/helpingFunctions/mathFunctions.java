@@ -1,4 +1,4 @@
-package org.example.helpingFunctions;
+package com.ericdschmid.budget.helpingFunctions;
 
 public class mathFunctions {
     //TODO - Change to interface

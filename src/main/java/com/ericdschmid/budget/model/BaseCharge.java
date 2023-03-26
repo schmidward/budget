@@ -1,11 +1,11 @@
-package org.example;
+package com.ericdschmid.budget.model;
 
-import org.example.helpingFunctions.miscHelpers;
+import com.ericdschmid.budget.helpingFunctions.dateHelpers;
 
 import java.util.Objects;
 
 
-public abstract class BaseCharge implements miscHelpers {
+public abstract class BaseCharge implements dateHelpers {
     private int id;
     private static int nextId = 1;
     private double amount;
