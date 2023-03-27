@@ -4,6 +4,20 @@
 
 ---
 
+### 03/27/2023 - Converting to Spring MVC project with Thymeleaf
+
+May be pre-mature, but I couldn't think of what to do next other than this. I want to build the front facing input
+capacity to test that my models work as needed or if there needs to be some kind of refactoring.
+
+Next steps are the controllers and views before establishing a connection to a database using PostgreSQL. Once those
+are complete, then I'll be able to build out a single database and tweak/improve functionality, and also build returns
+that correspond to a user's request for specific transaction values, types etc..
+
+Also now would be a good time to start development in new branches since the main application is running here and I
+want a place to return to.
+
+---
+
 ### 03/23/2023 - Adding tests and helper methods
 
 The core data structure is mostly complete and now I'm starting to build out the
