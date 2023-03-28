@@ -9,7 +9,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String displayHomePage() {
-        System.out.println("\n Home page requested");
+        System.out.println("\n*** Home page requested");
         return "index";
     }
 }

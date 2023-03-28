@@ -2,7 +2,18 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
-
+    <header th:replace="~{fragments :: header}"></header>
+        <h3>Charges!</h3>
+            <p th:unless="${collection} and ${collection.size()}">
+                Sad. You're not tracking any expenses. Let's change that.
+            </p>
+        <ul>
+            <th:block th:each="charge : ${collection}">
+                <li th:text="${charge.amount + ' &mdash; ' + charge.chargeCategory + ' charged on '
+                 + charge.date}"></li>
+            </th:block>
+        </ul>
+        <p><a href="/collection/add">Add</a> a new charge to the collection</p>
+        <p th:if="${collection.size()}"><a href="/collection/delete">Delete</a> charges from the collection.</p>
 </body>
 </html>

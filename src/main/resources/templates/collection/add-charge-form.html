@@ -2,7 +2,22 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="~{fragments :: head}"></head>
 <body>
-<header th:replace="~{fragments :: header}"></header>
+    <header th:replace="~{fragments :: header}"></header>
+    <main>
+        <form action='collection/add' method='POST'>
+            <h3>Add a Charge</h3>
+            <label>Charge amount <input type="text" name="amount"></label>
+            <label>Charge date <input type="text" name="date"></label>
+            <label>Charge category <select>
+                <th:block th:each="category : ${chargeCategory}">
+                    <option th:value="${category}" th:text="${category.displayName}"></option>
+                </th:block>
+            </select></label>
+            <label>Charge Description<input type="text" name="dek"></label>
+            <label>Charge account <input type="checkbox" name="account" th:value="${account.id}"><span th:text="${account.name}">My Account</span></label>
+            <button type="submit">Add Charge</button>
+        </form>
+    </main>
 
 </body>
 </html>
