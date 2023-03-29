@@ -4,17 +4,38 @@
 <body>
     <header th:replace="~{fragments :: header}"></header>
     <main>
-        <form action='collection/add' method='POST'>
+        <form action='/collection/add' method='POST'>
             <h3>Add a Charge</h3>
-            <label>Charge amount <input type="text" name="amount"></label>
-            <label>Charge date <input type="text" name="date"></label>
-            <label>Charge category <select>
-                <th:block th:each="category : ${chargeCategory}">
-                    <option th:value="${category}" th:text="${category.displayName}"></option>
-                </th:block>
-            </select></label>
-            <label>Charge Description<input type="text" name="dek"></label>
-            <label>Charge account <input type="checkbox" name="account" th:value="${account.id}"><span th:text="${account.name}">My Account</span></label>
+
+            <div class="form-item">
+                <label th:for="amount">Charge amount</label>
+                <input th:field="${charge.amount}" />
+                <p class="error" th:errors="${charge.amount}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="date">Charge date</label>
+                <input th:field="${charge.date}" />
+                <p class="error" th:errors="${charge.date}"></p>
+            </div>
+            <div class="form-item">
+                <label th:for="chargeCategory">Charge category</label>
+                <select th:field="${charge.chargeCategory}">
+                    <option th:each="category : ${chargeCategory}"
+                            th:value="${category}"
+                            th:text="${category.displayName}"
+                    ></option>
+                </select>
+            </div>
+            <div class="form-item">
+                <label th:for="dek">Charge Description</label>
+                <input th:field="${charge.dek}" />
+            </div>
+            <div class="form-item">
+                <label th:for="account">Charge account</label>
+                <input th:field="${charge.account}" />
+                <!-- TODO TEMPLATE #1 - Implement ability to display/pass account object into a charge -->
+                <!-- TODO TEMPLATE #2 - Turn this into a for each block with accounts once you can create on -->
+                <!-- <input type="checkbox" name="account" th:value="${account.id}" /><label th:text="${account.name}"></label> -->
             <button type="submit">Add Charge</button>
         </form>
     </main>

@@ -16,6 +16,7 @@ public class Account {
     }
 
     public Account(String name, String accountType, String dateOpened) {
+        this();
         this.name = name;
         this.type = accountType;
         this.dateOpened = dateOpened;
@@ -47,6 +48,10 @@ public class Account {
 
     public void setDateOpened(String dateOpened) {
         this.dateOpened = dateOpened;
+    }
+
+    public String toString() {
+        return this.name;
     }
 
     @Override

@@ -2,24 +2,24 @@ package com.ericdschmid.budget.model;
 
 public class Charge extends BaseCharge {
 
-    private Account account;
+    private String account;
 
 
     //@ManyToOne
 
+    public Charge() {}
+
     public Charge(double amount, String date, ChargeCategory chargeCategory,
-                  String dek, Account account){
+                  String dek, String account){
         super(amount, date, chargeCategory, dek);
         this.account = account;
     }
 
-    public Account getAccountDetails() {
+    public String getAccount() {
         return account;
     }
 
-    public void setAccountDetails(Account account) {
+    public void setAccount(String account) {
         this.account = account;
     }
-
-
 }

@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/collection")
 public class CollectionController {
 
-
-
     @GetMapping("")
     public String displayChargesIndexPage(Model model) {
         System.out.println("\n*** Charges page content requested by browser");
@@ -29,15 +27,16 @@ public class CollectionController {
         Account dummyAccount = new Account("First Bank", "Checking", "03-25-2022");
         model.addAttribute("account", dummyAccount);
         model.addAttribute("chargeCategory", ChargeCategory.values());
-        //TODO #1 - Add a model to pass for model binding eventually
+        model.addAttribute("charge", new Charge());
         return "collection/add-charge-form";
     }
 
-    //TODO #1 - FIX post handeling where the form goes to /collection/collection/add
+    //TODO #1 - Update handling to capture account and pass into charge. Likely needs that optional stuff?
     @PostMapping("/add")
     public String processAddCharge(@ModelAttribute @Valid Charge charge, Errors errors, Model model) {
         System.out.println("\n *** POST request submitted to add charge of " + charge.getAmount() + " to the collection");
         if (errors.hasErrors()) {
+            System.out.println("\n *** Error occurred in the post handling");
             Account dummyAccount = new Account("First Bank", "Checking", "03-25-2022");
             model.addAttribute("account", dummyAccount);
             model.addAttribute("chargeCategory", ChargeCategory.values());
@@ -48,4 +47,7 @@ public class CollectionController {
         }
     }
 
+    //TODO #2 - Write controller for delete entry
+    //TODO #3 - Write controller for edit entry
+    //TODO #4 - Write tests for the controller handling
 }

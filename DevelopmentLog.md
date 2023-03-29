@@ -4,6 +4,23 @@
 
 ---
 
+### 03/29/2023 - Beginning implementation of front facing forms and handling
+
+This has been challenging. I'm having issues with capturing an account object on submission of a single charge. My
+best guess is that I have some kind of logic error in the POST handler. I may need to have an additional CollectionData 
+class for accounts to make this work, though at that point it's probably easier to just hook up a persistent database
+and build that implementation. 
+
+Did some refactors to ensure the account object was what was creating errors on the POST handling. The form now accepts a 
+String for an account instead of an Account object which means it works now. This will need to be refactored eventually. 
+
+Next steps are going to be building out forms to add/edit/delete accounts, delete/edit charges and persistent database tracking.
+
+Longer term, the logic behind displaying slices of stored data according to user input will be challenging, but I think I can
+pull it off. And if I do, the application will really come to life.
+
+---
+
 ### 03/27/2023 - Converting to Spring MVC project with Thymeleaf
 
 May be pre-mature, but I couldn't think of what to do next other than this. I want to build the front facing input

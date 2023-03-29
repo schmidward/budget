@@ -9,8 +9,7 @@
             </p>
         <ul>
             <th:block th:each="charge : ${collection}">
-                <li th:text="${charge.amount + ' &mdash; ' + charge.chargeCategory + ' charged on '
-                 + charge.date}"></li>
+                <li th:text="${charge.date + ' &ndash; ' + ' &dollar;' + charge.amount + ' for ' + charge.chargeCategory.displayName}"></li>
             </th:block>
         </ul>
         <p><a href="/collection/add">Add</a> a new charge to the collection</p>

@@ -14,7 +14,7 @@ public class dateHelpersTest {
     @BeforeEach
     public void init(){
         dummyAccount = new Account("Second Bank", "Checking", "03-04-2021");
-        testData1 = new Charge(35, "06-24-2022", ChargeCategory.GROCERIES, "Beep boop", dummyAccount);
+        testData1 = new Charge(35, "06-24-2022", ChargeCategory.GROCERIES, "Beep boop", "dummyAccount");
     }
 
     @Test
