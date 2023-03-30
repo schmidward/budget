@@ -33,7 +33,7 @@ public class CollectionController {
     //TODO #1 - Update handling to capture account and pass into charge. Likely needs that optional stuff?
     @PostMapping("/add")
     public String processAddCharge(@ModelAttribute @Valid Charge charge, Errors errors, Model model) {
-        System.out.println("\n *** POST request submitted to add charge of " + charge.getAmount() + " to the collection");
+        System.out.println("\n *** POST request submitted to add charge of " + charge.getDetails().getAmount() + " to the collection");
         if (errors.hasErrors()) {
             System.out.println("\n *** Error occurred in the post handling");
             Account dummyAccount = new Account("First Bank", "Checking", "03-25-2022");

@@ -2,6 +2,7 @@ package com.ericdschmid.budget.model;
 
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
@@ -14,7 +15,7 @@ public class ChargeCategory {
     @NotBlank(message = "Name of charge category is required.")
     private String name;
 
-    @OneToMany(mappedBy="category")
+    @ManyToMany(mappedBy="category")
     private final List<Charge> charges = new ArrayList<>();
 
     public ChargeCategory() {}

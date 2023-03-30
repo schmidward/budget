@@ -1,32 +1,30 @@
 package com.ericdschmid.budget.model;
 
-public class Account {
+import com.ericdschmid.budget.helpingFunctions.dateHelpers;
+import jakarta.persistence.OneToMany;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Account extends AbstractEntity {
 
     //TODO #2 - CONVERT TO MAPPED CLASS
 
-    private int id;
-    private static int nextId = 1;
+
     private String name;
     private String type;
     private String dateOpened;
+    @OneToMany(mappedBy = "account")
+    private final List<Charge> charges = new ArrayList<>();
 
-    //@OneToMany(mappedBy= accountDetails)
-
-    Account() {
-        this.id = nextId;
-        nextId++;
-    }
+    public Account() {}
 
     public Account(String name, String accountType, String dateOpened) {
-        this();
         this.name = name;
         this.type = accountType;
         this.dateOpened = dateOpened;
     }
 
-    public int getId() {
-        return id;
-    }
 
     public String getName() {
         return name;
@@ -52,22 +50,12 @@ public class Account {
         this.dateOpened = dateOpened;
     }
 
+    public List<Charge> getCharges() {
+        return charges;
+    }
+
     public String toString() {
         return this.name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Account account = (Account) o;
-
-        return id == account.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return id;
-    }
 }

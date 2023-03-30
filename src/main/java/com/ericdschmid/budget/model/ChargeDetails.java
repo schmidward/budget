@@ -5,33 +5,23 @@ import com.ericdschmid.budget.helpingFunctions.dateHelpers;
 import java.util.Objects;
 
 
-public abstract class BaseCharge implements dateHelpers {
+public class ChargeDetails extends AbstractEntity implements dateHelpers {
 
     //TODO #1 - CONVERT TO CHARGE DETAILS
 
-    private int id;
-    private static int nextId = 1;
     private double amount;
     private String date;
     private Integer intDate = null;
-    private ChargeCategory chargeCategory;
     //Dek stands for description
     private String dek;
 
+    public ChargeDetails() {}
 
-    public BaseCharge(){
-        id = nextId;
-        nextId++;
-    }
-    public BaseCharge(double amount, String date, ChargeCategory chargeCategory, String dek){
-        this();
+    public ChargeDetails(double amount, String date, String dek){
         this.amount = amount;
         this.date = date;
-        this.chargeCategory = chargeCategory;
         this.dek = dek;
     }
-
-    public int getId() { return id; }
 
     public double getAmount() {
         return amount;
@@ -57,34 +47,12 @@ public abstract class BaseCharge implements dateHelpers {
         this.intDate = intDate;
     }
 
-    public ChargeCategory getChargeCategory() {
-        return chargeCategory;
-    }
-
-    public void setChargeCategory(ChargeCategory chargeCategory) {
-        this.chargeCategory = chargeCategory;
-    }
-
     public String getDek() {
         return dek;
     }
 
     public void setDek(String dek) {
         this.dek = dek;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass())
-            return false;
-        BaseCharge that = (BaseCharge) o;
-        return id == that.id;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 
     @Override
