@@ -1,26 +1,37 @@
 package com.ericdschmid.budget.model;
 
-public enum ChargeCategory {
 
-    MORTGAGE("Mortgage"),
-    RENT("Rent"),
-    CAR_PAYMENT("Car Payment"),
-    MISC_ITEM("Misc. Item"),
-    CREDIT_CARD("Credit Card"),
-    GROCERIES("Groceries"),
-    FOOD_OUT("Food Out"),
-    DONATION("Donation"),
-    UTILITY("Utility"),
-    DISCRETIONARY("Discretionary"),
-    ONE_TIME("One Time"),
-    OTHER("Other");
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
 
-    private final String displayName;
-    ChargeCategory (String displayName) {
-        this.displayName = displayName;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+public class ChargeCategory {
+
+    @NotBlank(message = "Name of charge category is required.")
+    private String name;
+
+    @OneToMany(mappedBy="category")
+    private final List<Charge> charges = new ArrayList<>();
+
+    public ChargeCategory() {}
+
+    public ChargeCategory(String name) {
+        this.name = name;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public List<Charge> getCharges() {
+        return charges;
     }
 }

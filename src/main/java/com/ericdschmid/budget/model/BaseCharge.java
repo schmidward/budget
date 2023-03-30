@@ -6,6 +6,9 @@ import java.util.Objects;
 
 
 public abstract class BaseCharge implements dateHelpers {
+
+    //TODO #1 - CONVERT TO CHARGE DETAILS
+
     private int id;
     private static int nextId = 1;
     private double amount;

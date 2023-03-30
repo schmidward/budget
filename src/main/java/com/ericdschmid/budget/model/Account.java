@@ -2,6 +2,8 @@ package com.ericdschmid.budget.model;
 
 public class Account {
 
+    //TODO #2 - CONVERT TO MAPPED CLASS
+
     private int id;
     private static int nextId = 1;
     private String name;

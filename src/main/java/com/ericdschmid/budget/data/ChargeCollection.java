@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 // This will be replaced by persistent database tracking. The functionality needs to be developed before hooking anything up.
-public class CollectionData {
+public class ChargeCollection {
 
     private static final Map<Integer, Charge> chargeCollection = new HashMap<>();
 

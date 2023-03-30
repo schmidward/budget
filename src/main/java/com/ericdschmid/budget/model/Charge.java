@@ -5,7 +5,7 @@ public class Charge extends BaseCharge {
     private String account;
 
 
-    //@ManyToOne
+    //TODO #1 - REFACTOR REFACTOR REFACTOR - crate charge details class. implement the ChargeCategory and Account relationships
 
     public Charge() {}
 

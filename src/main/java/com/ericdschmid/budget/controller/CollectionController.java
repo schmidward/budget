@@ -1,12 +1,11 @@
 package com.ericdschmid.budget.controller;
 
-import com.ericdschmid.budget.data.CollectionData;
+import com.ericdschmid.budget.data.ChargeCollection;
 import com.ericdschmid.budget.model.Account;
 import com.ericdschmid.budget.model.Charge;
 import com.ericdschmid.budget.model.ChargeCategory;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ public class CollectionController {
     @GetMapping("")
     public String displayChargesIndexPage(Model model) {
         System.out.println("\n*** Charges page content requested by browser");
-        model.addAttribute("collection", CollectionData.findAll());
+        model.addAttribute("collection", ChargeCollection.findAll());
         return "collection/index";
     }
     @GetMapping("/add")
@@ -42,7 +41,7 @@ public class CollectionController {
             model.addAttribute("chargeCategory", ChargeCategory.values());
             return "collection/add-charge-form";
         } else {
-            CollectionData.add(charge);
+            ChargeCollection.add(charge);
             return "redirect:/collection";
         }
     }
