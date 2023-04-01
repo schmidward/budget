@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Charge {
+public class Charge extends AbstractEntity {
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -16,13 +16,13 @@ public class Charge {
     @ManyToOne
     private Account account;
     @ManyToMany
-    private List<ChargeCategory> category = new ArrayList<>();
+    private List<ChargeTag> category = new ArrayList<>();
 
-    //TODO #1 - REFACTOR REFACTOR REFACTOR - crate charge details class. implement the ChargeCategory and Account relationships
+    //TODO #1 - REFACTOR REFACTOR REFACTOR - crate charge details class. implement the ChargeTag and Account relationships
 
     public Charge() {}
 
-    public Charge(ChargeDetails details, Account account, List<ChargeCategory> category){
+    public Charge(ChargeDetails details, Account account, List<ChargeTag> category){
         this.details = details;
         this.account = account;
         this.category = category;
@@ -44,11 +44,11 @@ public class Charge {
         this.account = account;
     }
 
-    public List<ChargeCategory> getCategory() {
+    public List<ChargeTag> getCategory() {
         return category;
     }
 
-    public void setCategory(List<ChargeCategory> category) {
+    public void setCategory(List<ChargeTag> category) {
         this.category = category;
     }
 }

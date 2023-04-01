@@ -3,14 +3,13 @@ package com.ericdschmid.budget.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class ChargeCategory {
+public class ChargeTag extends AbstractEntity {
 
     @NotBlank(message = "Name of charge category is required.")
     private String name;
@@ -18,9 +17,9 @@ public class ChargeCategory {
     @ManyToMany(mappedBy="category")
     private final List<Charge> charges = new ArrayList<>();
 
-    public ChargeCategory() {}
+    public ChargeTag() {}
 
-    public ChargeCategory(String name) {
+    public ChargeTag(String name) {
         this.name = name;
     }
 

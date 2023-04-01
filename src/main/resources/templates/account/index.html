@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<h3>Accounts!</h3>
+<p th:unless="${accounts} and ${accounts.size()}">
+    No accounts? That's Sad. Let's add a new one.
+</p>
+<ul>
+    <th:block th:each="account : ${accounts}">
+        <li th:text="${account.name + ' &ndash; is a ' + account.type + ' and opened on ' + account.dateOpened}"></li>
+    </th:block>
+</ul>
+<p><a href="/account/add">Add</a> a new account!</p>
+<p th:if="${accounts.size()}"><a href="/account/edit">Edit or Delete</a> an account from the your collection.</p>
+</body>
+</html>

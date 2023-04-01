@@ -5,12 +5,12 @@
 <header th:replace="~{fragments :: header}"></header>
 <main>
     <form action='/account/add' method='POST'>
-        <h3>Add a Charge</h3>
+        <h3>Add an Account</h3>
 
         <div class="form-item">
             <label th:for="name">Account name</label>
             <input th:field="${account.name}" />
-            <p class="error" th:errors="${charge.amount}"></p>
+            <p class="error" th:errors="${account.name}"></p>
         </div>
         <div class="form-item">
             <label th:for="type">Account type</label>

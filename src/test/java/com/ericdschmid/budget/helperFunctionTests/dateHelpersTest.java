@@ -1,7 +1,7 @@
 package com.ericdschmid.budget.helperFunctionTests;
 
 import com.ericdschmid.budget.model.Account;
-import com.ericdschmid.budget.model.ChargeCategory;
+import com.ericdschmid.budget.model.ChargeTag;
 import com.ericdschmid.budget.model.Charge;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +14,7 @@ public class dateHelpersTest {
     @BeforeEach
     public void init(){
         dummyAccount = new Account("Second Bank", "Checking", "03-04-2021");
-        testData1 = new Charge(35, "06-24-2022", ChargeCategory.GROCERIES, "Beep boop", "dummyAccount");
+        testData1 = new Charge(35, "06-24-2022", ChargeTag.GROCERIES, "Beep boop", "dummyAccount");
     }
 
     @Test

@@ -6,6 +6,18 @@
 
 ---
 
+### 04/01/2023 - Jumping to a persistent database
+
+I have certainly committed some development malpractice by jumping ahead to the database portion of this project. I 
+decided to go this route because I didn't want to code collector classes only to have to recode them
+as repositories later. I also know this application will use a database and I didn't want to deal with
+refactoring the controllers. 
+
+Add account is set up. Next will be editing and deleting an account. Then comes the creation of tags for charges.
+And then finally I can wrap it all together into the charge input form. 
+
+---
+
 ### 03/29/2023 - Beginning implementation of front facing forms and handling
 
 This has been challenging. I'm having issues with capturing an account object on submission of a single charge. My

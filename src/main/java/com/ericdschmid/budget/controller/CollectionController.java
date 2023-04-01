@@ -1,10 +1,12 @@
 package com.ericdschmid.budget.controller;
 
-import com.ericdschmid.budget.data.ChargeCollection;
+import com.ericdschmid.budget.data.AccountRepository;
+import com.ericdschmid.budget.data.ChargeTagRepository;
+import com.ericdschmid.budget.data.ChargeRepository;
 import com.ericdschmid.budget.model.Account;
 import com.ericdschmid.budget.model.Charge;
-import com.ericdschmid.budget.model.ChargeCategory;
 import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -13,19 +15,24 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/collection")
 public class CollectionController {
+    @Autowired
+    private ChargeRepository chargeRepository;
+    @Autowired
+    private ChargeTagRepository tagRepository;
+    @Autowired
+    private AccountRepository accountRepository;
 
     @GetMapping("")
     public String displayChargesIndexPage(Model model) {
         System.out.println("\n*** Charges page content requested by browser");
-        model.addAttribute("collection", ChargeCollection.findAll());
+        model.addAttribute("collection", chargeRepository.findAll());
         return "collection/index";
     }
     @GetMapping("/add")
     public String addCharge(Model model) {
         System.out.println("\n *** GET request submitted for add charge page content");
-        Account dummyAccount = new Account("First Bank", "Checking", "03-25-2022");
-        model.addAttribute("account", dummyAccount);
-        model.addAttribute("chargeCategory", ChargeCategory.values());
+        model.addAttribute("account", accountRepository.findAll());
+        model.addAttribute("chargeCategory", tagRepository.findAll());
         model.addAttribute("charge", new Charge());
         return "collection/add-charge-form";
     }
@@ -36,12 +43,11 @@ public class CollectionController {
         System.out.println("\n *** POST request submitted to add charge of " + charge.getDetails().getAmount() + " to the collection");
         if (errors.hasErrors()) {
             System.out.println("\n *** Error occurred in the post handling");
-            Account dummyAccount = new Account("First Bank", "Checking", "03-25-2022");
-            model.addAttribute("account", dummyAccount);
-            model.addAttribute("chargeCategory", ChargeCategory.values());
+            model.addAttribute("account", accountRepository.findAll());
+            model.addAttribute("chargeCategory", tagRepository.findAll());
             return "collection/add-charge-form";
         } else {
-            ChargeCollection.add(charge);
+            chargeRepository.save(charge);
             return "redirect:/collection";
         }
     }

@@ -1,25 +1,24 @@
 package com.ericdschmid.budget.model;
 
 import com.ericdschmid.budget.helpingFunctions.dateHelpers;
+import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Account extends AbstractEntity {
 
-    //TODO #2 - CONVERT TO MAPPED CLASS
-
-
     private String name;
-    private String type;
+    private AccountType type;
     private String dateOpened;
     @OneToMany(mappedBy = "account")
     private final List<Charge> charges = new ArrayList<>();
 
     public Account() {}
 
-    public Account(String name, String accountType, String dateOpened) {
+    public Account(String name, AccountType accountType, String dateOpened) {
         this.name = name;
         this.type = accountType;
         this.dateOpened = dateOpened;
@@ -34,11 +33,11 @@ public class Account extends AbstractEntity {
         this.name = name;
     }
 
-    public String getType() {
+    public AccountType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(AccountType type) {
         this.type = type;
     }
 

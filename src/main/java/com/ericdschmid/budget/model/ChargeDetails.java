@@ -1,10 +1,11 @@
 package com.ericdschmid.budget.model;
 
 import com.ericdschmid.budget.helpingFunctions.dateHelpers;
+import jakarta.persistence.Entity;
 
 import java.util.Objects;
 
-
+@Entity
 public class ChargeDetails extends AbstractEntity implements dateHelpers {
 
     //TODO #1 - CONVERT TO CHARGE DETAILS
