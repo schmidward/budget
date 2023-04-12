@@ -16,6 +16,11 @@ header {
     padding: 10px 30px;
 }
 
+main {
+    margin: 20px;
+}
+
+
 h1 {
     color: #DA8034;
     font-weight: 700;
