@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="~{fragments :: head}"></head>
+<body>
+<header th:replace="~{fragments :: header}"></header>
+<main>
+    <form action='/account/delete' method='POST'>
+        <h3>Delete Artwork</h3>
+        <th:block th:each="account : ${accounts}">
+            <label>
+                <input type="checkbox" name="accountIds" th:value="${account.id}" />
+                <span th:text="${account}"></span> <!-- implicitly calls toString() -->
+            </label><br />
+        </th:block>
+        <button class="delete" type='submit'>Delete Account</button>
+    </form>
+</main>
+</body>
+</html>
