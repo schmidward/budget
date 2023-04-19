@@ -6,6 +6,19 @@
 
 ---
 
+### 04/19/2023 - Gaps in Development time
+
+It's been challenging to carve out time to work on this project consistently, but
+I'm trying to find more time in my schedule to work on it. Things are shifting around
+in April and May that make consistency difficult.
+
+In terms of the development side, I am working a lot on the account view and controller. 
+The biggest challenge is figuring out how to write the logic properly to handle an EDIT request.
+I'm guessing I'll need to use a @PathVariable or @RequestParam but I'm not sure how to implement
+yet and haven't found similar examples of what I'm trying to do via google searches yet.
+
+---
+
 ### 04/01/2023 - Jumping to a persistent database
 
 I have certainly committed some development malpractice by jumping ahead to the database portion of this project. I 

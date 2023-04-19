@@ -3,16 +3,44 @@
 <head th:replace="~{fragments :: head}"></head>
 <body>
 <header th:replace="~{fragments :: header}"></header>
-<h3>Accounts!</h3>
-<p th:unless="${accounts} and ${accounts.size()}">
-    No accounts? That's Sad. Let's add a new one.
-</p>
-<ul>
-    <th:block th:each="account : ${accounts}">
-        <li th:text="${account.name + ' &ndash; is a ' + account.type + ' and opened on ' + account.dateOpened}"></li>
+<main>
+    <h3>Accounts!</h3>
+    <p th:unless="${accounts} and ${accounts.size()}">
+        No accounts? That's Sad. Let's add a new one.
+    </p>
+    <th:block th:if="${accounts} and ${accounts.size()}">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Account Type</th>
+                    <th>Date Opened</th>
+                    <th>Holder text</th>
+                </tr>
+            </thead>
+            <tr th:each="account : ${accounts}">
+                <td th:text="${account.id}"></td>
+                <td th:text="${account.name}"></td>
+                <td th:text="${account.type}"></td>
+                <td th:text="${account.dateOpened}"></td>
+                <td><a th:href="${'/account/edit/' + account.id}">Edit this account</a></td>
+            </tr>
+        </table>
     </th:block>
-</ul>
-<p><a href="/account/add">Add</a> a new account!</p>
-<p th:if="${accounts.size()}"><a href="/account/edit">Edit or Delete</a> an account from the your collection.</p>
+    <ul>
+        <th:block th:each="account : ${accounts}">
+            <li th:text="${account.name + ' &ndash; is a ' + account.type + ' and opened on ' + account.dateOpened}"></li>
+        </th:block>
+    </ul>
+    <p><a href="/account/add">Add</a> a new account!</p>
+
+
+    <p th:if="${accounts.size()}">If you would like to <b>Edit</b> or <b>Delete</b> an account, choose from the options below</p>
+
+        <a href="/account/edit">Edit or Delete</a> an account from your collection.
+
+
+</main>
 </body>
 </html>

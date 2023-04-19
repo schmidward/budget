@@ -34,7 +34,7 @@ public class CollectionController {
         model.addAttribute("account", accountRepository.findAll());
         model.addAttribute("chargeCategory", tagRepository.findAll());
         model.addAttribute("charge", new Charge());
-        return "collection/add-charge-form";
+        return "collection/add";
     }
 
     //TODO #1 - Update handling to capture account and pass into charge. Likely needs that optional stuff?
@@ -45,7 +45,7 @@ public class CollectionController {
             System.out.println("\n *** Error occurred in the post handling");
             model.addAttribute("account", accountRepository.findAll());
             model.addAttribute("chargeCategory", tagRepository.findAll());
-            return "collection/add-charge-form";
+            return "collection/add";
         } else {
             chargeRepository.save(charge);
             return "redirect:/collection";
